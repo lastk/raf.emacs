@@ -13,7 +13,7 @@
                                       shell
                                       (shell :variables shell-default-shell 'ansi-term)
                                       (shell :variables shell-default-term-shell "/bin/zsh")
-                                      ruby
+                                      (ruby :variables ruby-version-manager 'rvm)
                                       ruby-on-rails
                                       html
                                       gtags
