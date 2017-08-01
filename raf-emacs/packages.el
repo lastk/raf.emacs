@@ -31,13 +31,18 @@
 
 (defconst raf-emacs-packages
   '(
-    ruby)
+    ruby
+    magit)
   )
 
 (defun raf-emacs/post-init-ruby ()
   (ruby :variables ruby-enable-enh-ruby-mode t)
   (ruby :variables ruby-version-manager 'rvm)
-)
+  )
+
+(defun raf-emacs/post-init-magit ()
+  (setq-default git-magit-status-fullscreen t)
+  )
 
 
 ;;; packages.el ends here
