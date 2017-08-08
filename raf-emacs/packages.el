@@ -32,7 +32,8 @@
 (defconst raf-emacs-packages
   '(
     ruby
-    magit)
+    magit
+    org)
   )
 
 (defun raf-emacs/post-init-ruby ()
@@ -44,5 +45,26 @@
   (setq-default git-magit-status-fullscreen t)
   )
 
+(defun raf-emacs/post-init-org ()
+  (with-eval-after-load 'org
+    (setq org-agenda-files '("~/gtd/inbox.org"
+                             "~/gtd/projects.org"
+                             "~/gtd/someday.org"
+                             "~/gtd/notes.org"))
+
+    (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                   (file+headline "~/gtd/inbox.org" "Tasks")
+                                   "* TODO %i%?")
+                                  ("T" "Tickler" entry
+                                   (file+headline "~/gtd/tickler.org" "Tickler")
+                                   "* %i%? \n %U")))
+
+    (setq org-refile-targets '(("~/gtd/inbox.org" :maxlevel . 20)
+                               ("~/gtd/projects.org" :level . 1)
+                               ("~/gtd/someday.org" :level . 1)
+                               ("~/gtd/notes.org" :level . 1)
+                               ))
+    )
+  )
 
 ;;; packages.el ends here
