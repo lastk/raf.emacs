@@ -17,4 +17,5 @@
                                       ruby-on-rails
                                       html
                                       gtags
+                                      themes-megapack
                                       vim-powerline))

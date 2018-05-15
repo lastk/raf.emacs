@@ -33,7 +33,9 @@
   '(
     ruby
     magit
-    org)
+    org
+    indium
+    )
   )
 
 (defun raf-emacs/post-init-ruby ()
@@ -66,5 +68,7 @@
                                ))
     )
   )
-
+(defun raf-emacs/init-indium()
+(use-package indium)
+)
 ;;; packages.el ends here
