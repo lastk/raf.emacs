@@ -35,6 +35,8 @@
     magit
     org
     indium
+    tide
+    themes-megapack
     )
   )
 
@@ -49,26 +51,33 @@
 
 (defun raf-emacs/post-init-org ()
   (with-eval-after-load 'org
-    (setq org-agenda-files '("~/gtd/inbox.org"
-                             "~/gtd/projects.org"
-                             "~/gtd/someday.org"
-                             "~/gtd/notes.org"))
+    (setq org-agenda-files '("~/Dropbox/org/inbox.org"
+                             "~/Dropbox/org/notes.org"
+                             "~/Dropbox/org/focus.org"))
 
     (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                   (file+headline "~/gtd/inbox.org" "Tasks")
+                                   (file+headline "~/Dropbox/org/inbox.org" "Tasks")
                                    "* TODO %i%?")
                                   ("T" "Tickler" entry
-                                   (file+headline "~/gtd/tickler.org" "Tickler")
+                                   (file+headline "~/Dropbox/org/notes.org" "Tickler")
                                    "* %i%? \n %U")))
 
-    (setq org-refile-targets '(("~/gtd/inbox.org" :maxlevel . 20)
-                               ("~/gtd/projects.org" :level . 1)
-                               ("~/gtd/someday.org" :level . 1)
-                               ("~/gtd/notes.org" :level . 1)
+    (setq org-refile-targets '(("~/Dropbox/org/inbox.org" :maxlevel . 20)
+                               ("~/Dropbox/org/focus.org" :level . 1)
+                               ("~/Dropbox/org/notes.org" :level . 1)
                                ))
     )
   )
 (defun raf-emacs/init-indium()
 (use-package indium)
 )
+(defun raf-emacs/tide()
+(use-package tide)
+)
+(defun raf-emacs/themes-megapack()
+(use-package themes-megapack)
+)
+
+
+
 ;;; packages.el ends here
